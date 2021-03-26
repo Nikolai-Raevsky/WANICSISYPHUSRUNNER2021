@@ -19,11 +19,19 @@ public class PlayerMovementController : MonoBehaviour
 {
     public float MoveSpeed = 10;
     public int MaxHealth = 3;
+
+    //A float to change the player gravity scale 
+    public float GravityChange = 0;
+
+    
+
     public float JumpHeight = 5;
     public int MaxNumberOfJumps = 2;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
-    
+
+
+    private float ClassicGravityScale;
     private int jumpsRemaining = 0;
     private int currentHealth = 0;
     private string nameOfHealthDisplayObject = "HealthBar";
@@ -52,8 +60,12 @@ public class PlayerMovementController : MonoBehaviour
         currentHealth = MaxHealth;
         startingX = transform.position.x;
 
-        // Reset score
-        PlayerSaveData.DistanceRun = 0;
+        //Store original gravityscale here
+        // A float storing the original gravity scale
+          ClassicGravityScale = gameObject.GetComponent<Rigidbody2D>().gravityScale;
+
+    // Reset score
+    PlayerSaveData.DistanceRun = 0;
     }
 
     // Update is called once per frame
@@ -70,6 +82,7 @@ public class PlayerMovementController : MonoBehaviour
                 var jump_vec = new Vector3(0,JumpHeight,0);
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
+                gameObject.GetComponent<Rigidbody2D>().gravityScale += GravityChange; //Change gravity scale to speed up double jumps
             }
         }
         // Sliding
@@ -135,6 +148,9 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("Floor"))
         {
             jumpsRemaining = MaxNumberOfJumps;
+           
+            //Reset gravity scale on collision with ground
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = ClassicGravityScale;
         } 
     }
 

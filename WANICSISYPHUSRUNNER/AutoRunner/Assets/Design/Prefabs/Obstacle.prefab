@@ -146,3 +146,4 @@ MonoBehaviour:
   DestroyOnPlayerCollision: 1
   Damage: 1
   DestroyXLimit: -10
+  ObstacleDirection: 0.01
