@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1058519915616819888}
   - component: {fileID: 8284546310493225511}
   - component: {fileID: 5832176597951909059}
+  - component: {fileID: -8790561463432128536}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -146,4 +147,16 @@ MonoBehaviour:
   DestroyOnPlayerCollision: 1
   Damage: 1
   DestroyXLimit: -10
+--- !u!114 &-8790561463432128536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5713477468529980678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4227b003550a7e64080bc7f3bb223224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   ObstacleDirection: 0.01

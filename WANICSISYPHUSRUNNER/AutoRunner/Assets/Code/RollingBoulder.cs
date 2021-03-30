@@ -8,6 +8,7 @@ public class RollingBoulder : MonoBehaviour
     public float speedTop = -11f;
     public float speedBottom = -5f;
     float speed;
+    public int Damage = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,6 @@ public class RollingBoulder : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(speed, 0);
-        transform.Rotate(0, 0, Time.deltaTime * (speed * -9.5f), Space.World);
-        if (transform.position.x <= 4)
-        {
-            Destroy(gameObject);
-        }
+        transform.Rotate(0, 0, Time.deltaTime * (speed * -9.5f), Space.World);     
     }
 }
