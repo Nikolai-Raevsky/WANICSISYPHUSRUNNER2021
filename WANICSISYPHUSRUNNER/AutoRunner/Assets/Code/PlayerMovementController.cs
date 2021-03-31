@@ -29,6 +29,9 @@ public class PlayerMovementController : MonoBehaviour
     public int MaxNumberOfJumps = 2;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
+    //Need to make some audio files for the jump sound effect
+    private AudioSource audioSource= null;
+    public AudioClip jumpSE;
 
 
     private float ClassicGravityScale;
@@ -44,6 +47,8 @@ public class PlayerMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Assing audioSource the AudioSource on the Player
+        audioSource = GetComponent<AudioSource>();
         healthBarObj = GameObject.Find(nameOfHealthDisplayObject);
         distanceObj = GameObject.Find(nameOfDistanceLabelObject);
         animationManager = GetComponent<PlayerAnimationManager>();
@@ -83,6 +88,8 @@ public class PlayerMovementController : MonoBehaviour
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
                 gameObject.GetComponent<Rigidbody2D>().gravityScale += GravityChange; //Change gravity scale to speed up double jumps
+                //Play Jump Sound
+                audioSource.PlayOneShot(jumpSE, 1f);
             }
         }
         // Sliding

@@ -854,9 +854,24 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 5702680126517417176, guid: 44a2f1fd3e785c143ba8383e2edee21b,
         type: 3}
+      propertyPath: jumpSE.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702680126517417176, guid: 44a2f1fd3e785c143ba8383e2edee21b,
+        type: 3}
       propertyPath: GravityChange
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5702680126517417176, guid: 44a2f1fd3e785c143ba8383e2edee21b,
+        type: 3}
+      propertyPath: jumpSE.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4045f6bd1960cd740b2d550693941188, type: 3}
+    - target: {fileID: 5702680126517417176, guid: 44a2f1fd3e785c143ba8383e2edee21b,
+        type: 3}
+      propertyPath: jumpSE
+      value: 
+      objectReference: {fileID: 8300000, guid: 4045f6bd1960cd740b2d550693941188, type: 3}
     - target: {fileID: 5702680126517417177, guid: 44a2f1fd3e785c143ba8383e2edee21b,
         type: 3}
       propertyPath: m_RootOrder
