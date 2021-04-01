@@ -44,6 +44,7 @@ public class PlayerMovementController : MonoBehaviour
     private float startingX = 0;
     private PlayerAnimationManager animationManager;
     bool isInv = false;
+    float timer = 0;
     int delay = 100;
     // Start is called before the first frame update
     void Start()
@@ -80,14 +81,12 @@ public class PlayerMovementController : MonoBehaviour
         bool grounded = IsGrounded();
         if (isInv == true)
         {
-            float i = 0;
-            while(i <= delay)
-            {                
-                i += Time.deltaTime;
-            }
-            if (i >= delay)
+            timer += Time.deltaTime;
+            
+            if (timer >= delay)
             {
                 isInv = false;
+                timer = 0;
             }
         }
         // Jumping
