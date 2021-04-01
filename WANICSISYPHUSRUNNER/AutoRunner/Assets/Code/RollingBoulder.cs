@@ -8,7 +8,7 @@ public class RollingBoulder : MonoBehaviour
     public float speedTop = -11f;
     public float speedBottom = -5f;
     float speed;
-    public int Damage = 1;
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -40,7 +40,8 @@ public class PlayerMovementController : MonoBehaviour
     private GameObject distanceObj = null;
     private float startingX = 0;
     private PlayerAnimationManager animationManager;
-
+    bool isInv = false;
+    int delay = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +73,18 @@ public class PlayerMovementController : MonoBehaviour
     void Update()
     {
         bool grounded = IsGrounded();
-
+        if (isInv == true)
+        {
+            float i = 0;
+            while(i <= delay)
+            {                
+                i += Time.deltaTime;
+            }
+            if (i >= delay)
+            {
+                isInv = false;
+            }
+        }
         // Jumping
         if (Input.GetKeyDown(JumpKey))
         {
@@ -126,26 +138,42 @@ public class PlayerMovementController : MonoBehaviour
 
             if (obstacle != null)
             {
-                currentHealth -= obstacle.Damage;
+                if (isInv == false)
+                {
+                    currentHealth -= obstacle.Damage;
+                }
                 // Game Over
                 if (currentHealth <= 0)
                 {
                     // Load score level
                     UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
+                }             
+                if (healthBarObj != null)
+                {
+                    if (isInv == false)
+                    {
+                        healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
+                        animationManager.SwitchTo(PlayerAnimationStates.Hurt);
+                    }
                 }
                 if (obstacle.DestroyOnPlayerCollision)
                 {
                     Destroy(collision.collider.gameObject);
                 }
-                if (healthBarObj != null)
-                {
-                    healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
-                    animationManager.SwitchTo(PlayerAnimationStates.Hurt);
-                }
             }
         }
-        // Hit the floor
-        if (collision.collider.gameObject.CompareTag("Floor"))
+        if (collision.collider.gameObject.CompareTag("inv"))
+        {
+            Debug.Log("aaaaaa");
+            Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
+            if (obstacle.DestroyOnPlayerCollision)
+            {
+                Destroy(collision.collider.gameObject);
+            }
+            isInv = true;
+        }
+            // Hit the floor
+            if (collision.collider.gameObject.CompareTag("Floor"))
         {
             jumpsRemaining = MaxNumberOfJumps;
            

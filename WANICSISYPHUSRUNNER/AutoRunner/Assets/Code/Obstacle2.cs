@@ -9,9 +9,12 @@ public class Obstacle2 : MonoBehaviour
     private float yPosition = 0.0f;
     private GameObject player = null;
     private Rigidbody2D physics = null;
-
+    private float height;
+    public float topHeight;
+    public float bottomHeight;
     //Set a public variable that controls the vertical boulder movement
     public float ObstacleDirection;
+    private float RH;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,9 @@ public class Obstacle2 : MonoBehaviour
         yPosition = transform.position.y;
         player = GameObject.Find("Player");
         physics = gameObject.GetComponent<Rigidbody2D>();
+        height = Random.Range(bottomHeight, topHeight);
+        RH = Random.Range(0f, height);
+        transform.position = (new Vector3(50, RH, 0));
         //Assign value to the vertical boulder velocity here
 
     }
@@ -27,12 +33,12 @@ public class Obstacle2 : MonoBehaviour
     void Update()
     {
         //Stop boulders from rising too high
-        if (gameObject.GetComponent<Transform>().position.y > 5)
+        if (gameObject.GetComponent<Transform>().position.y > height)
         {
             ObstacleDirection *= -1;
         }
 
-
+        transform.Rotate(0, 0, Time.deltaTime * (-5 * -9.5f), Space.World);
         float moveSpeed = -10.0f;
 
         if (player != null)
