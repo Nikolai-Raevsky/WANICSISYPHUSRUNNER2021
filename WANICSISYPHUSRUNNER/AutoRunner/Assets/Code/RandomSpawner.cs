@@ -80,29 +80,35 @@ public class RandomSpawner : MonoBehaviour
         if(dieRoll <= Object1SpawnChance)
         {
             spawnedObject = Instantiate(Object1Prefab);
+            Object1Prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;//Make sure boulders spawn on right sorting layer.
         }
         else if(dieRoll <= Object2SpawnChance + Object1SpawnChance)
         {
             spawnedObject = Instantiate(Object2Prefab);
+            Object2Prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;//Make sure boulders spawn on right sorting layer.
         }
         else if (dieRoll <= Object3SpawnChance + Object2SpawnChance 
             + Object1SpawnChance)
         {
             spawnedObject = Instantiate(Object3Prefab);
+            Object3Prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;//Make sure boulders spawn on right sorting layer.
         }
         else if (dieRoll <= Object4SpawnChance + Object3SpawnChance 
             + Object2SpawnChance + Object1SpawnChance)
         {
             spawnedObject = Instantiate(Object4Prefab);
+            Object4Prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;//Make sure boulders spawn on right sorting layer.
         }
         else if (dieRoll <= Object5SpawnChance + Object4SpawnChance 
             + Object3SpawnChance + Object2SpawnChance + Object1SpawnChance)
         {
             spawnedObject = Instantiate(Object5Prefab);
+            Object5Prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;//Make sure boulders spawn on right sorting layer.
         }
         else if (dieRoll <= totalChance)
         {
             spawnedObject = Instantiate(Object6Prefab);
+            Object6Prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;//Make sure boulders spawn on right sorting layer.
         }
 
         // Set object position
