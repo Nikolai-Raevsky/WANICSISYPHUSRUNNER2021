@@ -12,7 +12,7 @@ public class RollingBoulder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = (new Vector3(50,-.5f,0));
+        transform.position = (new Vector3(50,-1.5f,0));
         speed = Random.Range(speedBottom, speedTop);
     }
    
