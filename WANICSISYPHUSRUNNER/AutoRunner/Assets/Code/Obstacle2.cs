@@ -58,12 +58,4 @@ public class Obstacle2 : MonoBehaviour
  
     }
 
-    //Use this function to stop the boulders from sinking too far.
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.gameObject.CompareTag("Floor") && gameObject.GetComponent<Transform>().position.y <= -.5f)
-        {
-            ObstacleDirection *= -1;
-        }
-    }
 }
