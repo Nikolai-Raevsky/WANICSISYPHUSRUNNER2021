@@ -38,6 +38,11 @@ public class Obstacle2 : MonoBehaviour
             ObstacleDirection *= -1;
         }
 
+        if(gameObject.GetComponent<Transform>().position.y > height)
+        {
+            ObstacleDirection *= -1;
+        }
+
         transform.Rotate(0, 0, Time.deltaTime * (-5 * -9.5f), Space.World);
         float moveSpeed = -10.0f;
 
@@ -56,7 +61,7 @@ public class Obstacle2 : MonoBehaviour
     //Use this function to stop the boulders from sinking too far.
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.CompareTag("Floor"))
+        if (collision.collider.gameObject.CompareTag("Floor") && gameObject.GetComponent<Transform>().position.y <= -.5f)
         {
             ObstacleDirection *= -1;
         }
