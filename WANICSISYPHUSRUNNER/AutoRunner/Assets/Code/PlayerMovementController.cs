@@ -25,7 +25,7 @@ public class PlayerMovementController : MonoBehaviour
 
     
 
-    public float JumpHeight = 5;
+    public float JumpHeight = 10;
     public int MaxNumberOfJumps = 2;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
