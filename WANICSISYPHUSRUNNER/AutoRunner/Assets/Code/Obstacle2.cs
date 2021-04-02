@@ -38,7 +38,7 @@ public class Obstacle2 : MonoBehaviour
             ObstacleDirection *= -1;
         }
 
-        if(gameObject.GetComponent<Transform>().position.y > height)
+        if(gameObject.GetComponent<Transform>().position.y < -.5f)
         {
             ObstacleDirection *= -1;
         }
