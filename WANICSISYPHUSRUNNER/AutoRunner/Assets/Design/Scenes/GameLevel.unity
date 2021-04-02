@@ -944,6 +944,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 182d666432b55a34095101139d987be9,
         type: 2}
+    - target: {fileID: 5702680125714932156, guid: 44a2f1fd3e785c143ba8383e2edee21b,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5702680126517417176, guid: 44a2f1fd3e785c143ba8383e2edee21b,
         type: 3}
       propertyPath: jumpSE.Array.size
@@ -964,6 +969,11 @@ PrefabInstance:
       propertyPath: jumpSE
       value: 
       objectReference: {fileID: 8300000, guid: 4045f6bd1960cd740b2d550693941188, type: 3}
+    - target: {fileID: 5702680126517417176, guid: 44a2f1fd3e785c143ba8383e2edee21b,
+        type: 3}
+      propertyPath: hurtSE
+      value: 
+      objectReference: {fileID: 8300000, guid: 0432e3f1ef3e76544aac28b2999700f1, type: 3}
     - target: {fileID: 5702680126517417177, guid: 44a2f1fd3e785c143ba8383e2edee21b,
         type: 3}
       propertyPath: m_RootOrder

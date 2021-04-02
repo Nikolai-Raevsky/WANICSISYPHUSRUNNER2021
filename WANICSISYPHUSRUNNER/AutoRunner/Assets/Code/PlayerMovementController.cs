@@ -32,6 +32,7 @@ public class PlayerMovementController : MonoBehaviour
     //Need to make some audio files for the jump sound effect
     private AudioSource audioSource= null;
     public AudioClip jumpSE;
+    public AudioClip hurtSE;
 
 
     private float ClassicGravityScale;
@@ -140,6 +141,8 @@ public class PlayerMovementController : MonoBehaviour
         // Hit an Obstacle
         if (collision.collider.gameObject.CompareTag("Obstacle"))
         {
+            Debug.Log("Play now!");
+            audioSource.PlayOneShot(hurtSE, 1);
             Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
 
             if (obstacle != null)
