@@ -141,7 +141,7 @@ public class PlayerMovementController : MonoBehaviour
         // Hit an Obstacle
         if (collision.collider.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Play now!");
+            
             audioSource.PlayOneShot(hurtSE, 1);
             Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
 
