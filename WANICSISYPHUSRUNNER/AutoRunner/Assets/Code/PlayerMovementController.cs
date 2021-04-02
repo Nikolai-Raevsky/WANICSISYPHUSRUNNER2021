@@ -45,7 +45,7 @@ public class PlayerMovementController : MonoBehaviour
     private PlayerAnimationManager animationManager;
     bool isInv = false;
     float timer = 0;
-    int delay = 100;
+    int delay = 8;
     // Start is called before the first frame update
     void Start()
     {
